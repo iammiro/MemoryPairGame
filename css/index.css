@@ -1,0 +1,67 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1 {
+    color: green;
+}
+img {
+    width: 150px;
+    height: 150px;
+}
+.hide {
+    visibility: hidden;
+}
+#app {
+    display: flex;
+    flex-wrap: wrap;
+    width: 620px;
+}
+.game-block {
+    margin: 2px;
+}
+.game-block img {
+    float: left;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+/* entire container, keeps perspective */
+.flip-container {
+    perspective: 200px;
+}
+/* flip the pane when clicked */
+.flip-animate {
+    transform: rotateY(180deg);
+}
+.flip-container, .front, .back {
+    width: 150px;
+    height: 150px;
+}
+/* flip speed goes here */
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+/* hide back of pane during swap */
+.front, .back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/* front pane, placed above back */
+.front {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+    border: 1px solid black;
+    border-radius: 3px;
+}
+/* back, initially hidden pane */
+.back {
+    transform: rotateY(180deg);
+}
