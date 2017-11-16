@@ -3,13 +3,45 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0;
+    height: 100vh;
 }
 h1 {
-    color: green;
+    font-size: 3em;
+    font-family: monospace;
+    text-transform: uppercase;
 }
 img {
     width: 150px;
-    height: 150px;
+    height: 200px;
+}
+header {
+    background-color: #111111;
+    color: white;
+    height: 15vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+main {
+    background-color: #e4e4e4;
+    height: 75vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+footer {
+    background-color: dimgrey;
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 .hide {
     visibility: hidden;
@@ -17,51 +49,50 @@ img {
 #app {
     display: flex;
     flex-wrap: wrap;
-    width: 620px;
+    width: 720px;
 }
 .game-block {
-    margin: 2px;
+    margin: 5px;
 }
 .game-block img {
     float: left;
-    border: 1px solid black;
-    border-radius: 3px;
+    border-radius: 10px;
+    -webkit-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.75);
 }
-
-/* entire container, keeps perspective */
 .flip-container {
     perspective: 200px;
 }
-/* flip the pane when clicked */
 .flip-animate {
     transform: rotateY(180deg);
 }
 .flip-container, .front, .back {
     width: 150px;
-    height: 150px;
+    height: 200px;
 }
-/* flip speed goes here */
 .flipper {
     transition: 0.6s;
     transform-style: preserve-3d;
     position: relative;
+    border-radius: 10px;
 }
-/* hide back of pane during swap */
 .front, .back {
     backface-visibility: hidden;
     position: absolute;
+    background-color: white;
     top: 0;
     left: 0;
+    border-radius: 10px;
 }
-/* front pane, placed above back */
 .front {
     z-index: 2;
-    /* for firefox 31 */
     transform: rotateY(0deg);
-    border: 1px solid black;
-    border-radius: 3px;
+    border-radius: 10px;
+    -webkit-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.75);
 }
-/* back, initially hidden pane */
 .back {
     transform: rotateY(180deg);
 }
