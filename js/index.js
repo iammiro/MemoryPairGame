@@ -3,18 +3,18 @@ const container = document.getElementById('app');
 let prevElements = [];
 
 const data = [
-    {iconId: 1, dataName: 'blueberries', iconSrc: 'img/blueberries.svg'},
-    {iconId: 2, dataName: 'blueberries', iconSrc: 'img/blueberries.svg'},
-    {iconId: 3, dataName: 'cherries', iconSrc: 'img/cherries.svg'},
-    {iconId: 4, dataName: 'cherries', iconSrc: 'img/cherries.svg'},
-    {iconId: 5, dataName: 'lime', iconSrc: 'img/lime.svg'},
-    {iconId: 6, dataName: 'lime', iconSrc: 'img/lime.svg'},
-    {iconId: 7, dataName: 'orange', iconSrc: 'img/orange.svg'},
-    {iconId: 8, dataName: 'orange', iconSrc: 'img/orange.svg'},
-    {iconId: 9, dataName: 'pear', iconSrc: 'img/pear.svg'},
-    {iconId: 10, dataName: 'pear', iconSrc: 'img/pear.svg'},
-    {iconId: 11, dataName: 'pumpkin', iconSrc: 'img/pumpkin.svg'},
-    {iconId: 12, dataName: 'pumpkin', iconSrc: 'img/pumpkin.svg'}
+    {iconId: 1, dataName: 'blueberries', iconSrc: 'img/atom.svg'},
+    {iconId: 2, dataName: 'blueberries', iconSrc: 'img/atom.svg'},
+    {iconId: 3, dataName: 'cherries', iconSrc: 'img/dna-structure.svg'},
+    {iconId: 4, dataName: 'cherries', iconSrc: 'img/dna-structure.svg'},
+    {iconId: 5, dataName: 'lime', iconSrc: 'img/earth.svg'},
+    {iconId: 6, dataName: 'lime', iconSrc: 'img/earth.svg'},
+    {iconId: 7, dataName: 'orange', iconSrc: 'img/earth-globe.svg'},
+    {iconId: 8, dataName: 'orange', iconSrc: 'img/earth-globe.svg'},
+    {iconId: 9, dataName: 'pear', iconSrc: 'img/flasks.svg'},
+    {iconId: 10, dataName: 'pear', iconSrc: 'img/flasks.svg'},
+    {iconId: 11, dataName: 'pumpkin', iconSrc: 'img/molecular.svg'},
+    {iconId: 12, dataName: 'pumpkin', iconSrc: 'img/molecular.svg'}
 ];
 
 function shuffleArr(o) {

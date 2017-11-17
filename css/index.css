@@ -6,15 +6,18 @@ body {
     margin: 0;
     height: 100vh;
 }
+
 h1 {
     font-size: 3em;
     font-family: monospace;
     text-transform: uppercase;
 }
+
 img {
-    width: 150px;
-    height: 200px;
+    width: 10vw;
+    height: 15vw;
 }
+
 header {
     background-color: #111111;
     color: white;
@@ -25,6 +28,7 @@ header {
     align-items: center;
     justify-content: center;
 }
+
 main {
     background-color: #e4e4e4;
     height: 75vh;
@@ -34,65 +38,82 @@ main {
     align-items: center;
     justify-content: center;
 }
+
 footer {
-    background-color: dimgrey;
+    background-color: black;
     width: 100vw;
     height: 10vh;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    color: white;
+    font-family: monospace;
+    font-size: 1em;
 }
+
 .hide {
     visibility: hidden;
 }
+
 #app {
     display: flex;
     flex-wrap: wrap;
-    width: 720px;
+    width: 44vw;
+    min-width: 564px;
 }
+
 .game-block {
     margin: 5px;
 }
+
 .game-block img {
     float: left;
     border-radius: 10px;
-    -webkit-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.75);
-    box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.75);
 }
+
 .flip-container {
     perspective: 200px;
 }
+
 .flip-animate {
     transform: rotateY(180deg);
 }
+
 .flip-container, .front, .back {
-    width: 150px;
-    height: 200px;
+    width: 10vw;
+    height: 15vw;
 }
+
 .flipper {
     transition: 0.6s;
     transform-style: preserve-3d;
     position: relative;
     border-radius: 10px;
 }
+
 .front, .back {
     backface-visibility: hidden;
     position: absolute;
-    background-color: white;
     top: 0;
     left: 0;
     border-radius: 10px;
 }
+
 .front {
     z-index: 2;
     transform: rotateY(0deg);
     border-radius: 10px;
-    -webkit-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.75);
-    box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.75);
+    background-color: black;
+    -webkit-box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.75);
 }
+
 .back {
+    background-color: white;
     transform: rotateY(180deg);
 }
