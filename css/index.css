@@ -24,7 +24,7 @@ header {
     height: 15vh;
     width: 100vw;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -108,6 +108,14 @@ footer {
     transform: rotateY(0deg);
     border-radius: 10px;
     background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    font-size: 3em;
+    font-weight: 100;
     -webkit-box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.75);
@@ -116,4 +124,71 @@ footer {
 .back {
     background-color: white;
     transform: rotateY(180deg);
+}
+
+.text-typing {
+    font-size: 1em;
+    font-family: monospace;
+    text-transform: uppercase;
+    color: white;
+    width: 100vw;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-animation: type 5s steps(50, end);
+    animation: type 5s steps(50, end);
+}
+
+@keyframes type {
+    from {
+        width: 0;
+    }
+}
+
+@-webkit-keyframes type {
+    from {
+        width: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+        font-family: monospace;
+        text-transform: uppercase;
+    }
+
+    main {
+        background-color: #0DA00D;
+    }
+
+    #app {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 44vw;
+        min-width: 100vw;
+    }
+
+    img {
+        width: 18vw;
+        height: 30vw;
+    }
+
+    .flip-container, .front, .back {
+        width: 18vw;
+        height: 30vw;
+    }
+
+    .text-typing {
+        font-size: 1em;
+        font-family: monospace;
+        text-transform: uppercase;
+        color: white;
+        width: 90vw;
+        white-space: normal;
+        overflow: hidden;
+        -webkit-animation: none;
+        animation: none;
+        text-align: center;
+    }
 }

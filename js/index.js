@@ -33,7 +33,7 @@ function renderTemplate(data) {
         gameBlock.className += dataName;
         gameBlock.innerHTML = ` <div class="flip-container">
                                     <div class="flipper ${dataName}"  id="${iconId}" data-name="${dataName}" onclick="clickHandler()">
-                                        <div class="front"></div>
+                                        <div class="front">&#9883;</div>
                                         <div class="back">
                                              <img src="${iconSrc}" alt="${dataName}">
                                         </div>
