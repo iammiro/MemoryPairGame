@@ -76,7 +76,7 @@ function hideDuplicate() {
     }
 }
 
-function turnEvery() {
+function turnEvery(n) {
     for (let i = 0; i < prevElements.length - 1; i++) {
         document.getElementById(prevElements[i]).classList.remove("flip-animate");
     }
