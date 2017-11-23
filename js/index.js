@@ -52,11 +52,12 @@ function clickHandler() {
     event.target.parentNode.className += ' flip-animate';
     if (event.target.parentNode.id) {
         prevElements.push(event.target.parentNode.id);
-        console.log(prevElements);
-        hideDuplicate();
-        if (prevElements.length > 2) {
-            //TODO left 2 cards
-            turnEvery();
+        // console.log('clickHandler - ' + prevElements);
+        if (prevElements.length > 1) {
+            hideDuplicate();
+            if (prevElements.length > 2) {
+                    turnEvery();
+            }
         }
     }
 }
@@ -64,24 +65,28 @@ function clickHandler() {
 function hideDuplicate() {
     for (let i = 0; i < 1; i++) {
         let currentElement = document.getElementById(prevElements[prevElements.length - 1]).getAttribute('data-name');
+        // console.log('currentElement - ' + currentElement);
         let previousElement = document.getElementById(prevElements[prevElements.length - 2]).getAttribute('data-name');
+        // console.log('previousElement - ' + previousElement);
+        // console.log(currentElement);
         if (currentElement === previousElement) {
             document.getElementById(prevElements[prevElements.length - 2]).className += ' hide';
             document.getElementById(prevElements[prevElements.length - 1]).className += ' hide';
-            console.log(prevElements);
+            // console.log('hideDuplicate - ' + prevElements);
             setTimeout(function () {
                 turnEvery();
+                prevElements.length = 0;
             }, 1000);
         }
     }
 }
 
-function turnEvery(n) {
+function turnEvery() {
     for (let i = 0; i < prevElements.length - 1; i++) {
         document.getElementById(prevElements[i]).classList.remove("flip-animate");
     }
     prevElements.splice(0, prevElements.length - 1);
-    console.log(prevElements);
+    // console.log('turnEvery - ' + prevElements);
 }
 
 initGame();
