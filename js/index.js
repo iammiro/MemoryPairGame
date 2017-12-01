@@ -50,7 +50,9 @@ function eventHandler() {
     const el = document.getElementById('app');
     el.addEventListener("click", function (e) {
         if (e.target.classList.contains('front')) {
-            event.target.parentNode.className += ' flip-animate';
+            let theTarget = event.target.parentNode;
+            theTarget.className += ' flip-animate';
+            console.log(event);
             if (event.target.parentNode.id) {
                 prevElements.push(event.target.parentNode.id);
                 if (prevElements.length > 1) {
@@ -66,7 +68,6 @@ function hideDuplicate() {
     let previousElement = document.getElementById(prevElements[prevElements.length - 2]).getAttribute('data-name');
     if (prevElements.length > 2) {
         turnEvery();
-        console.log(prevElements);
     } else if (currentElement === previousElement) {
         document.getElementById(prevElements[prevElements.length - 1]).className += ' hide';
         document.getElementById(prevElements[prevElements.length - 2]).className += ' hide';
