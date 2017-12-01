@@ -52,8 +52,8 @@ function eventHandler() {
         if (e.target.classList.contains('front')) {
             let theTarget = e.target.parentNode;
             theTarget.className += ' flip-animate';
-            if (event.target.parentNode.id) {
-                prevElements.push(event.target.parentNode.id);
+            if (e.target.parentNode.id) {
+                prevElements.push(e.target.parentNode.id);
                 if (prevElements.length > 1) {
                     hideDuplicate();
                 }
