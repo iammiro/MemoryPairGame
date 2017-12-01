@@ -50,9 +50,8 @@ function eventHandler() {
     const el = document.getElementById('app');
     el.addEventListener("click", function (e) {
         if (e.target.classList.contains('front')) {
-            let theTarget = event.target.parentNode;
+            let theTarget = e.target.parentNode;
             theTarget.className += ' flip-animate';
-            console.log(event);
             if (event.target.parentNode.id) {
                 prevElements.push(event.target.parentNode.id);
                 if (prevElements.length > 1) {
