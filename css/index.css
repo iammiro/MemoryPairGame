@@ -4,7 +4,6 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0;
-    height: 100vh;
 }
 
 h1 {
@@ -13,16 +12,12 @@ h1 {
     text-transform: uppercase;
 }
 
-img {
-    width: 10vw;
-    height: 15vw;
-}
-
 header {
     background-color: #111111;
     color: white;
     height: 15vh;
-    width: 100vw;
+    min-height: 100px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,8 +26,9 @@ header {
 
 main {
     background-color: #e4e4e4;
-    height: 75vh;
-    width: 100vw;
+    height: 70vh;
+    min-height: 600px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,8 +37,9 @@ main {
 
 footer {
     background-color: black;
-    width: 100vw;
-    height: 10vh;
+    width: 100%;
+    height: 15vh;
+    min-height: 100px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -59,20 +56,13 @@ footer {
 #app {
     display: flex;
     flex-wrap: wrap;
-    width: 44vw;
-    min-width: 564px;
-}
-
-.game-block {
-    margin: 5px;
+    width: 400px;
 }
 
 .game-block img {
     float: left;
-    border-radius: 10px;
-    -webkit-box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.75);
-    box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.75);
+    width: 100px;
+    height: 150px;
 }
 
 .flip-container {
@@ -84,15 +74,14 @@ footer {
 }
 
 .flip-container, .front, .back {
-    width: 10vw;
-    height: 15vw;
+    width: 100px;
+    height: 150px;
 }
 
 .flipper {
-    transition: 0.6s;
+    transition: 0.4s;
     transform-style: preserve-3d;
     position: relative;
-    border-radius: 10px;
 }
 
 .front, .back {
@@ -100,13 +89,11 @@ footer {
     position: absolute;
     top: 0;
     left: 0;
-    border-radius: 10px;
 }
 
 .front {
     z-index: 2;
     transform: rotateY(0deg);
-    border-radius: 10px;
     background-color: black;
     display: flex;
     flex-direction: column;
@@ -116,9 +103,6 @@ footer {
     color: white;
     font-size: 3em;
     font-weight: 100;
-    -webkit-box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.75);
-    box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.75);
 }
 
 .back {
@@ -131,7 +115,7 @@ footer {
     font-family: monospace;
     text-transform: uppercase;
     color: white;
-    width: 100vw;
+    width: 100%;
     white-space: nowrap;
     overflow: hidden;
     -webkit-animation: type 5s steps(50, end);
@@ -150,45 +134,31 @@ footer {
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 420px) {
     h1 {
         font-size: 2em;
-        font-family: monospace;
-        text-transform: uppercase;
     }
 
     main {
-        background-color: #0DA00D;
+        height: 70vh;
+        min-height: 400px;
     }
 
     #app {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        width: 44vw;
-        min-width: 100vw;
+        width: 280px;
     }
 
-    img {
-        width: 18vw;
-        height: 30vw;
+    .game-block img {
+        width: 70px;
+        height: 110px;
     }
 
     .flip-container, .front, .back {
-        width: 18vw;
-        height: 30vw;
+        width: 70px;
+        height: 110px;
     }
 
     .text-typing {
-        font-size: 0.8em;
-        font-family: monospace;
-        text-transform: uppercase;
-        color: white;
-        width: 90vw;
-        white-space: normal;
-        overflow: hidden;
-        -webkit-animation: none;
-        animation: none;
-        text-align: center;
+        font-size: 0.7em;
     }
 }

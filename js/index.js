@@ -2,6 +2,8 @@ const container = document.getElementById('app');
 
 let prevElements = [];
 
+let count = 0;
+
 const data = [
     {iconId: 1, dataName: 'blueberries', iconSrc: 'img/atom.svg'},
     {iconId: 2, dataName: 'blueberries', iconSrc: 'img/atom.svg'},
@@ -32,47 +34,52 @@ function renderTemplate(data) {
         gameBlock.className = "game-block ";
         gameBlock.className += dataName;
         gameBlock.innerHTML = ` <div class="flip-container">
-                                    <div class="flipper ${dataName}"  id="${iconId}" data-name="${dataName}" onclick="clickHandler()">
+                                     <div class="flipper"  id="${iconId}" data-name="${dataName}">
                                         <div class="front">&#9883;</div>
-                                        <div class="back">
-                                             <img src="${iconSrc}" alt="${dataName}">
-                                        </div>
-                                    </div>
+                                       <div class="back">
+                                            <img src="${iconSrc}" alt="${dataName}">
+                                       </div>
+                                  </div>
                                 </div>`;
         container.appendChild(gameBlock);
     }
+    eventHandler();
 }
 
-function initGame() {
-    renderTemplate(data);
-    prevElements.length = 0;
-}
-
-function clickHandler() {
-    event.target.parentNode.className += ' flip-animate';
-    if (event.target.parentNode.id) {
-        prevElements.push(event.target.parentNode.id);
-        console.log('clickHandler - ' + prevElements);
-        if (prevElements.length > 1) {
-            hideDuplicate();
+function eventHandler() {
+    const el = document.getElementById('app');
+    el.addEventListener("click", function (e) {
+        if (e.target.classList.contains('front')) {
+            event.target.parentNode.className += ' flip-animate';
+            if (event.target.parentNode.id) {
+                prevElements.push(event.target.parentNode.id);
+                if (prevElements.length > 1) {
+                    hideDuplicate();
+                }
+            }
         }
-    }
+    })
 }
 
 function hideDuplicate() {
-    for (let i = 0; i < 1; i++) {
-        let currentElement = document.getElementById(prevElements[prevElements.length - 1]).getAttribute('data-name');
-        let previousElement = document.getElementById(prevElements[prevElements.length - 2]).getAttribute('data-name');
-        if (currentElement === previousElement) {
-            document.getElementById(prevElements[prevElements.length - 2]).className += ' hide';
-            document.getElementById(prevElements[prevElements.length - 1]).className += ' hide';
+    let currentElement = document.getElementById(prevElements[prevElements.length - 1]).getAttribute('data-name');
+    let previousElement = document.getElementById(prevElements[prevElements.length - 2]).getAttribute('data-name');
+    if (prevElements.length > 2) {
+        turnEvery();
+        console.log(prevElements);
+    } else if (currentElement === previousElement) {
+        document.getElementById(prevElements[prevElements.length - 1]).className += ' hide';
+        document.getElementById(prevElements[prevElements.length - 2]).className += ' hide';
+        count++;
+        if (count === 6) {
             setTimeout(function () {
-                turnEvery();
-                prevElements.length = 0;
+                alert('Tou win!');
+                location.reload();
+                initGame();
             }, 500);
-        } else if (prevElements.length > 2) {
-            turnEvery();
         }
+        turnEvery();
+        prevElements.length = 0;
     }
 }
 
@@ -81,6 +88,12 @@ function turnEvery() {
         document.getElementById(prevElements[i]).classList.remove("flip-animate");
     }
     prevElements.splice(0, prevElements.length - 1);
+}
+
+function initGame() {
+    renderTemplate(data);
+    prevElements.length = 0;
+    count = 0;
 }
 
 initGame();
