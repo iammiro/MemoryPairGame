@@ -1,9 +1,4 @@
 const container = document.getElementById('app');
-
-let prevElements = [];
-
-let count = 0;
-
 const data = [
     {iconId: 1, dataName: 'blueberries', iconSrc: 'img/atom.svg'},
     {iconId: 2, dataName: 'blueberries', iconSrc: 'img/atom.svg'},
@@ -18,6 +13,8 @@ const data = [
     {iconId: 11, dataName: 'pumpkin', iconSrc: 'img/molecular.svg'},
     {iconId: 12, dataName: 'pumpkin', iconSrc: 'img/molecular.svg'}
 ];
+let prevElements = [];
+let count = 0;
 
 function shuffleArr(o) {
     for (let j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x) ;
@@ -27,9 +24,7 @@ function shuffleArr(o) {
 function renderTemplate(data) {
     shuffleArr(data);
     for (let i = 0; i < data.length; i++) {
-        let dataName = data[i].dataName;
-        let iconSrc = data[i].iconSrc;
-        let iconId = data[i].iconId;
+        let {dataName, iconSrc, iconId} = data[i];
         const gameBlock = document.createElement('div');
         gameBlock.className = "game-block ";
         gameBlock.className += dataName;
@@ -62,13 +57,13 @@ function eventHandler() {
 }
 
 function hideDuplicate() {
-    let currentElement = document.getElementById(prevElements[prevElements.length - 1]).getAttribute('data-name');
-    let previousElement = document.getElementById(prevElements[prevElements.length - 2]).getAttribute('data-name');
+    let currentElement = document.getElementById(prevElements[prevElements.length - 1]);
+    let previousElement = document.getElementById(prevElements[prevElements.length - 2]);
     if (prevElements.length > 2) {
         turnEvery();
-    } else if (currentElement === previousElement) {
-        document.getElementById(prevElements[prevElements.length - 1]).className += ' hide';
-        document.getElementById(prevElements[prevElements.length - 2]).className += ' hide';
+    } else if (currentElement.getAttribute('data-name') === previousElement.getAttribute('data-name')) {
+        currentElement.className += ' hide';
+        previousElement.className += ' hide';
         count++;
         if (count === 6) {
             setTimeout(function () {
