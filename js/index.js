@@ -48,12 +48,11 @@ function renderTemplate(data) {
 
 function eventHandler() {
     const el = document.getElementById('app');
-    el.addEventListener("click", function (e) {
-        if (e.target.classList.contains('front')) {
-            let theTarget = e.target.parentNode;
-            theTarget.className += ' flip-animate';
-            if (e.target.parentNode.id) {
-                prevElements.push(e.target.parentNode.id);
+    el.addEventListener("click", function (event) {
+        if (event.target.classList.contains('front')) {
+            event.target.parentNode.className += ' flip-animate';
+            if (event.target.parentNode.id) {
+                prevElements.push(event.target.parentNode.id);
                 if (prevElements.length > 1) {
                     hideDuplicate();
                 }
@@ -78,7 +77,9 @@ function hideDuplicate() {
                 initGame();
             }, 500);
         }
-        turnEvery();
+        setTimeout(function () {
+            turnEvery();
+        }, 500);
         prevElements.length = 0;
     }
 }
