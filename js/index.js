@@ -23,25 +23,27 @@ function shuffleArr(o) {
 
 function renderTemplate(data) {
     shuffleArr(data);
-    for (let i = 0; i < data.length; i++) {
-        let {dataName, iconSrc, iconId} = data[i];
+    const wrapper = document.createElement('div');
+    wrapper.className = "wrapper";
+    data.forEach(function (element) {
+        console.log(element);
         const gameBlock = document.createElement('div');
         gameBlock.className = "game-block ";
-        gameBlock.className += dataName;
         gameBlock.innerHTML = ` <div class="flip-container">
-                                     <div class="flipper"  id="${iconId}" data-name="${dataName}">
+                                     <div class="flipper"  id="${element.iconId}" data-name="${element.dataName}">
                                         <div class="front">&#9883;</div>
                                        <div class="back">
-                                            <img src="${iconSrc}" alt="${dataName}">
+                                            <img src="${element.iconSrc}" alt="${element.dataName}">
                                        </div>
                                   </div>
                                 </div>`;
-        container.appendChild(gameBlock);
-    }
-    eventHandler();
+        wrapper.appendChild(gameBlock);
+    });
+    container.appendChild(wrapper);
+    addEventHandler();
 }
 
-function eventHandler() {
+function addEventHandler() {
     const el = document.getElementById('app');
     el.addEventListener("click", function (event) {
         if (event.target.classList.contains('front')) {
@@ -67,7 +69,7 @@ function hideDuplicate() {
         count++;
         if (count === 6) {
             setTimeout(function () {
-                alert('Tou win!');
+                alert('You won!');
                 location.reload();
                 initGame();
             }, 500);
